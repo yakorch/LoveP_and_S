@@ -77,10 +77,18 @@ For a standard normal distribution, the kurtosis is $3$. If we get a larger valu
 
 ```{r} 
 # your code here
+k_central_moment <- function(num, datafr){
+  return (sum((my.data - mean(my.data))^(num))/n)
+}
 # skewness
-
+third_central_moment = k_central_moment(3, my.data)
+sec_central_moment = k_central_moment(2, my.data)
+skewness = third_central_moment/sec_central_moment^(3/2)
+skewness
 # kurtosis
-
+four_central_moment = k_central_moment(4, my.data)
+kurtosis = four_central_moment/sec_central_moment^2
+kurtosis
 ```
 
 ## 4. Percentiles 
@@ -88,10 +96,9 @@ For a standard normal distribution, the kurtosis is $3$. If we get a larger valu
 ### For q= 0.1,...,0.9 calculate sample q-percentiles manually (i.e. by sorting the data and picking the corresponding values) and by using percentile
 
 ```{r} 
-# your code here
-# skewness
-
-# kurtosis
+quantile(my.data, probs = seq(0.1,0.9,0.1))
+my.data_sorted = sort(my.data)
+my.data_sorted[seq(100, 900, 100)]
 
 ```
 
