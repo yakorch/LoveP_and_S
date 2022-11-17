@@ -1,0 +1,105 @@
+---
+title: 'Seminar 10: Descriptive statistics'
+output: html_notebook
+---
+
+## 1. Data (Id is the average of the member's no. in the P&S list)
+
+### Task: Generate your data 
+
+This is a sample of size $n=1000$ combined from two samples of size $500$ from the normal distributions $N(\mu_k,\sigma_k^2)$ with $\mu_1 = Id$, $\sigma_1 = 3$ and $\mu_2 = -2$, $\sigma_2 = Id$
+
+Hint: you can use $\texttt{mean = c}(\mu_1,\mu_2)$ and $\texttt{sd = c}(\sigma_1,\sigma_2)$
+ 
+
+```{r}
+# your code here
+n <- 1000
+#my.data <- rnorm(...)
+#summary(my.data)
+``` 
+
+## 2. Visualise the data
+
+### Task: Draw the histogram of the data, empirical density, and empirical cdf. Comment on whether the data are close to a normal one
+
+```{r}
+# draw histogram
+
+# superimpose empirical density
+
+# superimpose normal density
+
+```
+
+### Plot ecdf
+
+```{r} 
+# plot ecdf
+
+# superimpose cdf for standard normal
+
+# calculate maximal difference 
+
+```
+
+## 3. Skewness and kurtosis of the data
+
+**Skewness** is defined as
+$$
+  \mathsf{E} \left[\left({\frac {X-\mu }{\sigma }}\right)^{3}\right]={\frac {\mu _{3}}{\sigma ^{3}}}={\frac {\mathsf{E} \left[(X-\mu )^{3}\right]}{\ \ \ (\mathsf{E} \left[(X-\mu )^{2}\right])^{3/2}}}
+$$
+
+Positive skewness means the data have longer right tail and then the mean value $\mathsf{E}(X)$ is greater than the median
+
+**Kurtosis** is defined as 
+$$
+  \mathsf{E} \left[\left({\frac {X-\mu }{\sigma }}\right)^{4}\right]={\frac {\mu _{4}}{\sigma ^{4}}}={\frac {\mathsf{E} \left[(X-\mu )^{4}\right]}{\ \ \ (\mathsf{E} \left[(X-\mu )^{2}\right])^{2}}}
+$$
+
+For a standard normal distribution, the kurtosis is $3$. If we get a larger value, then more data are concentrated ner the mean, and the empirical density is more steep
+
+
+```{r} 
+# your code here
+# skewness
+
+# kurtosis
+
+```
+
+## 4. Percentiles 
+
+### For q= 0.1,...,0.9 calculate sample q-percentiles manually (i.e. by sorting the data and picking the corresponding values) and by using percentile
+
+```{r} 
+# your code here
+# skewness
+
+# kurtosis
+
+```
+
+
+## 5. Sample mean and sample standard error vs the theoretical ones 
+
+### What is the theoretical expected value of the random variable considered? What is the variance? Compare them to the sample values; explain the difference in the variance
+
+```{r}
+# your code here
+# theoretical expected value and variance
+
+# sample mean and sample variance
+
+```
+
+
+## 6. k-sigma rule
+
+### Calculate the fraction of the data that are within $k\sigma$ of the sample mean for $k=1,2,3$. Do we get the result expected? Why or why not?
+
+```{r}
+# your code here
+
+```
+
