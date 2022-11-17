@@ -17,16 +17,11 @@ mu_1 <- 10
 mu_2 <- -2
 sd_1 <- 3
 sd_2 <- 10
-n <- 1000
+n <- 10000000
 mean <- c(mu_1, mu_2)
 sd <- c(sd_1, sd_2)
 
-first <- rnorm(500, mu_1, sd_1)
-second <- rnorm(500, mu_2, sd_2)
-together <- c(first, second)
 my.data <- rnorm(n, mean, sd)
-
-my.data <- together
 summary(my.data)
 ```
 
@@ -34,15 +29,16 @@ summary(my.data)
 
 ### Task: Draw the histogram of the data, empirical density, and empirical cdf. Comment on whether the data are close to a normal one
 
-Let $X$ ~ $N(\mu_1, \sigma_1^2)$, $Y$ ~ $N(\mu_2, \sigma_2^2)$. Then, $Z = X + Y $~ $N(\frac{\mu_1 + \mu_2}{2}, \sigma_1^2 + \sigma_2^2)$
+Let $X$ ~ $N(\mu_1, \sigma_1^2)$, $Y$ ~ $N(\mu_2, \sigma_2^2)$. Then, combining these two samples, the expected value is going to be: $E(Z) = \frac{\mu_1 + \mu_2}{2} = 4$.
+
+$Var(Z) = E(Z^2) - {E(Z)}^2  = E(Z^2) - 16 = \frac{1}{2}(E(X^2) + E(Y^2)) - 16 = \frac{1}{2}(\mu_1^2 + \sigma_1^2 + \mu_2^2 + \sigma_2^2) - 16 = \frac{1}{2}(100 + 9 + 4 + 100) - 16 = 90.5$
 
 ```{r}
 x <- my.data
-
 h <- hist(x, plot=FALSE)
 plot(h, col="grey")
 xlines <-seq(min(h$breaks),max(h$breaks),length.out=1000)
-lines(x = xlines,y=dnorm(xlines, mean(mean),  ) *length(x)*diff(h$breaks)[1])
+lines(x = xlines,y=dnorm(xlines, 4, sqrt(90.5)) *length(x)*diff(h$breaks)[1])
 
 
 # superimpose empirical density
