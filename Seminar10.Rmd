@@ -17,7 +17,7 @@ mu_1 <- 10
 mu_2 <- -2
 sd_1 <- 3
 sd_2 <- 10
-n <- 10000000
+n <- 1000
 mean <- c(mu_1, mu_2)
 sd <- c(sd_1, sd_2)
 
@@ -35,26 +35,40 @@ $Var(Z) = E(Z^2) - {E(Z)}^2  = E(Z^2) - 16 = \frac{1}{2}(E(X^2) + E(Y^2)) - 16 =
 
 ```{r}
 x <- my.data
+
+# histogram
+hist(x)
+
+# superimpose normal density
 h <- hist(x, plot=FALSE)
 plot(h, col="grey")
 xlines <-seq(min(h$breaks),max(h$breaks),length.out=1000)
 lines(x = xlines,y=dnorm(xlines, 4, sqrt(90.5)) *length(x)*diff(h$breaks)[1])
 
 
-# superimpose empirical density
-
-# superimpose normal density
-
+# superimpose emperical density
+h <- hist(x, plot=FALSE)
+plot(h, col="grey")
+xlines <-seq(min(h$breaks),max(h$breaks),length.out=1000)
+lines(x = xlines, y=dnorm(xlines, mean(x), sd(x)) * length(x)*diff(h$breaks)[1])
 ```
 
 ### Plot ecdf
 
-```{r} 
+```{r}
+Fs_1 <- ecdf(x)
 # plot ecdf
+plot(Fs_1)
+
 
 # superimpose cdf for standard normal
+par(new=TRUE)
+plot(ecdf(rnorm(10e4, 0, 1)), col="red")
 
-# calculate maximal difference 
+# calculate maximal difference
+sample <- x
+x <- seq(min(sample),max(sample), by = .01)
+max(abs(Fs_1(x)-pnorm(x,mean = mean(sample), sd = sd(sample))))
 
 ```
 
