@@ -143,18 +143,14 @@ res
 ### Calculate the fraction of the data that are within $k\sigma$ of the sample mean for $k=1,2,3$. Do we get the result expected? Why or why not?
 
 ```{r}
-# data_freq <- table(my.data)
-# data_freq
-# m <- mean(my.data.freq); 
-# print(m)
-# s <- sd(my.data.freq)
-# print("For 1 sigma:")
-# mean(abs(my.data.freq-m)> s)
-# print("For 2 sigma:")
-# mean(abs(my.data.freq-m)> 2*s)
-# print("For 3 sigma:")
-# mean(abs(my.data.freq-m)> 3*s)
-
-
+m <- mean(my.data); 
+print(m)
+s <- sd(my.data)
+print("For 1 sigma:")
+mean(abs(my.data-m)< s) # should be 0.66
+print("For 2 sigma:")
+mean(abs(my.data-m)< 2*s) # should be 0.95
+print("For 3 sigma:")
+mean(abs(my.data-m)< 3*s) # should be 0.997
 ```
 
