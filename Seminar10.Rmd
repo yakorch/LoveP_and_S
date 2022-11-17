@@ -77,16 +77,16 @@ For a standard normal distribution, the kurtosis is $3$. If we get a larger valu
 
 ```{r} 
 # your code here
-k_central_moment <- function(num, datafr){
+k_central_moment <- function(num){
   return (sum((my.data - mean(my.data))^(num))/n)
 }
 # skewness
-third_central_moment = k_central_moment(3, my.data)
-sec_central_moment = k_central_moment(2, my.data)
+third_central_moment = k_central_moment(3)
+sec_central_moment = k_central_moment(2)
 skewness = third_central_moment/sec_central_moment^(3/2)
 skewness
 # kurtosis
-four_central_moment = k_central_moment(4, my.data)
+four_central_moment = k_central_moment(4)
 kurtosis = four_central_moment/sec_central_moment^2
 kurtosis
 ```
