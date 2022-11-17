@@ -13,11 +13,17 @@ Hint: you can use $\texttt{mean = c}(\mu_1,\mu_2)$ and $\texttt{sd = c}(\sigma_1
  
 
 ```{r}
-# your code here
+mu_1 <- 10
+mu_2 <- -2
+sd_1 <- 3
+sd_2 <- 10
 n <- 1000
-#my.data <- rnorm(...)
-#summary(my.data)
-``` 
+mean <- c(mu_1, mu_2)
+sd <- c(sd_1, sd_2)
+my.data <- rnorm(n, mean, sd)
+my.data
+summary(my.data)
+```
 
 ## 2. Visualise the data
 
