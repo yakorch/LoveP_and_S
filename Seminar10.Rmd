@@ -96,10 +96,9 @@ kurtosis
 ### For q= 0.1,...,0.9 calculate sample q-percentiles manually (i.e. by sorting the data and picking the corresponding values) and by using percentile
 
 ```{r} 
-# your code here
-# skewness
-
-# kurtosis
+quantile(my.data, probs = seq(0.1,0.9,0.1))
+my.data_sorted = sort(my.data)
+my.data_sorted[seq(100, 900, 100)]
 
 ```
 
