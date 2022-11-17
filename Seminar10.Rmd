@@ -98,7 +98,15 @@ kurtosis
 ```{r} 
 quantile(my.data, probs = seq(0.1,0.9,0.1))
 my.data_sorted = sort(my.data)
+print("naive approach:")
 my.data_sorted[seq(100, 900, 100)]
+res <- list()
+print("how it is done in r:")
+res <- c()
+for(i in seq(100, 900, 100)) {
+  res<-c(res,((my.data_sorted[i])*(i/1000)+((my.data_sorted[i+1])*((1000-i)/1000))))
+}
+res
 
 ```
 
