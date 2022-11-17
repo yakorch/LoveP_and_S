@@ -129,12 +129,29 @@ res
 
 ### What is the theoretical expected value of the random variable considered? What is the variance? Compare them to the sample values; explain the difference in the variance
 
+Theoretical part using calculations from ***section 2***,
+
+Expected value: $E(Z) = \frac{\mu_1 + \mu_2}{2} = 4$
+
+Variance: $Var(Z) = ... = \frac{1}{2}(100 + 9 + 4 + 100) - 16 = 90.5$
+
 ```{r}
-# your code here
-# theoretical expected value and variance
-
+sample_variance <- function(x, s_mean) {
+    return(sum((x - s_mean)^2)/(length(x)-1))
+}
+standard_error <- function(x, s_mean) {
+    return(sqrt(sample_variance(x, s_mean)))
+}
 # sample mean and sample variance
+s_mean <- mean(my.data)
+s_variance <- sample_variance(my.data, s_mean)
+s_s_error <- standard_error(my.data, s_mean)
+cat("Sample mean\t\t=\t", s_mean, "\n")
+cat("Sample variance\t\t=\t", s_variance, "\n")
+cat("Sample standard error\t=\t", s_s_error, "\n")
 
+cat("Exp. value and s. mean difference\t=\t", abs(4-s_mean), "\n")
+cat("Variance and s. variance difference\t=\t", abs(90.5-s_variance), "\n")
 ```
 
 
