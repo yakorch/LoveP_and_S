@@ -154,3 +154,4 @@ print("For 3 sigma:")
 mean(abs(my.data-m)< 3*s) # should be 0.997
 ```
 
+As we can see, we get quite expected results. Some inaccuracies are possible due to our sample size. 
